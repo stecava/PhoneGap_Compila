@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prima applicazione PhoneGap</title>
+
+	<!-- Importo il Metadato Viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Includo Cordova/Phonegap -->
+	<script src="js/cordova-2.4.0.js"></script>
+
+	<script>
+
+	// Caricamento DOM
+	function avvio(){
+		document.addEventListener('deviceready', dispPronto);
+	}
+
+	// Caricamento PhoneGap
+	function dispPronto(){
+		//alert('Ci sono!');
+
+		var info = document.getElementById("info");
+		info.style.opacity = 1;
+		info.style.webkitTransform = "scale(1)";
+
+		document.getElementById("device").innerHTML = window.device.name; // mi permette di sapere il nome del dispositivo.
+		document.getElementById("identificativo").innerHTML = window.device.uuid;
+		document.getElementById("piattaforma").innerHTML = window.device.platform;
+	}
+
+	</script>
+
+	<style>
+
+	*{
+		margin: 0;
+		padding-bottom: 0;
+	}
+
+	body{
+		margin: 0;
+		padding: 0;
+		color: #555;
+		font-family: Arial;
+		font-size: 22px;
+	}
+
+	h1{
+		height: 50px;
+		font-size: 30px;
+		line-height: 50px;
+		background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+		background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+		color: white;
+		text-align: center;
+		text-shadow: 2px 2px 5px black;
+	}
+
+	#info{
+		width: 80%;
+		margin: 30px auto;
+		-webkit-transition: all 1s ease;
+		-webkit-transform: scale(2);
+		opacity: 0;
+	}
+
+	#info p{
+		margin-bottom: 10px;
+	}
+
+	</style>
+</head>
+<body onload="avvio()">
+	<h1>Prima App PhoneGap</h1>
+
+	<div id="info">
+		<p>Nome device<strong id="device">...</strong></p>
+		<p>ID<strong id="identificativo">...</strong></p>
+		<p>Nome device<strong id="piattaforma">...</strong></p>
+	</div>
+</body>
+</html>
